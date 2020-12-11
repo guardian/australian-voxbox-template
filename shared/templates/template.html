@@ -1,0 +1,80 @@
+
+
+	<h2 id="voxbox_headline">{{headline}}</h2>
+
+	{{#if standfirst}}<div id="voxbox_intro">{{standfirst}}</div>{{/if}}
+
+	<div id="target">
+		
+		<div class="headshot_block_container">
+
+			{{#each vox}}
+
+				<div class="headshot_block" style="width:{{sizer()}};padding-bottom:{{sizer()}};">
+
+					<div class="headshot" on-click="['activate', id]" style="background-image:url({{image}})"></div>
+
+				</div>
+
+			{{/each}}
+
+		</div>
+
+	</div>
+
+	{{#if active}}
+
+	{{#panel}}
+
+	<div id="panel">
+		
+		<div class="story_block column">
+
+			<h2>{{title}}</h2>
+
+			<div>
+
+				{{#if solo}}
+
+					<div class="read-more-solo">
+
+						{{{intro}}}
+
+					</div>
+
+					{{#if url}}
+
+					<a href="{{url}}" target="_blank"><div class="curl">{{label}}</div></a>
+
+					{{/if}}
+
+				{{else}}
+				
+					<input type="checkbox" class="read-more-state" id="post-{{@key}}" />
+
+						<div class="read-more-wrap">
+						
+						{{{intro}}} <span class="read-more-target"> {{{full}}} </span>
+					
+						</div>
+
+					<label for="post-{{@key}}" class="read-more-trigger"></label>
+
+					{{#if url}}
+
+					<a href="{{url}}" target="_blank"><div class="curl">{{label}}</div></a>
+
+					{{/if}}
+
+				{{/if}}
+
+			</div>
+
+		</div>
+
+	</div>
+
+	{{/panel}}
+
+	{{/if}}
+
