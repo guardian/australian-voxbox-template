@@ -15,7 +15,7 @@ export class Voxbox {
 
 			item.solo = (item.full==='') ? true : false ;
 
-			item.active = false
+			item.active = (index===0) ? true : false ;
 
 		});
 
@@ -31,9 +31,9 @@ export class Voxbox {
 
 			"distance" : data.vox.length,
 
-			"panel" : {},
+			"panel" : data.vox[0],
 
-			"active" : false,
+			"active" : true,
 
 			sizer: () => ( 100 / data.vox.length ) + '%' 
 
@@ -82,6 +82,10 @@ export class Voxbox {
 			self.ractive.set(self.database)
 
 		});
+
+		document.getElementsByClassName("headshot")[0].classList.add("pulse");
+
+		document.getElementsByClassName("headshot")[0].style.borderColor = self.database.primary
 
 	}  
 
